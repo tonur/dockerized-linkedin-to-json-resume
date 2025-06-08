@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 rm -rf "$SCRIPT_DIR/output"
 mkdir -p "$SCRIPT_DIR/output"
-docker build -t li2jr .
+docker build -t li2jr "$SCRIPT_DIR"
 
 if [[ ! -f "$1" ]]; then
   echo "Error: Input file '$1' does not exist."
