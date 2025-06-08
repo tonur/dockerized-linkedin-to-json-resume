@@ -27,6 +27,3 @@ if [ ! -f "$SCRIPT_DIR/output/resume.json" ]; then
   exit 1
 fi
 echo "✅ Converted to $SCRIPT_DIR/output/resume.json"
-
-cp "$SCRIPT_DIR/output/resume.json" "$SCRIPT_DIR/../reactive-resume/resume.json"
-echo "✅ Copied to $SCRIPT_DIR/../reactive-resume/resume.json"
