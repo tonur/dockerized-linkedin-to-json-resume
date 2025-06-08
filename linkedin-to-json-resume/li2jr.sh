@@ -7,8 +7,7 @@ if [ -z "$1" ]; then
 fi
 rm -rf "$SCRIPT_DIR/output"
 mkdir -p "$SCRIPT_DIR/output"
-docker build -t li2jr "$SCRIPT_DIR"
-
+docker build -t tonur/linkedin-to-json-resume:latest "$SCRIPT_DIR"
 if [[ ! -f "$1" ]]; then
   echo "Error: Input file '$1' does not exist."
   exit 1
@@ -22,7 +21,7 @@ INPUT_FILE="$(basename "$INPUT_PATH")"
 docker run --rm -u "$(id -u):$(id -g)" \
   -v "$INPUT_DIR:/input" \
   -v "$SCRIPT_DIR/output:/output" \
-  li2jr "/input/$INPUT_FILE" "/output"
+  tonur/linkedin-to-json-resume:latest "/input/$INPUT_FILE" "/output"
 if [ ! -f "$SCRIPT_DIR/output/resume.json" ]; then
   echo "Error: Conversion failed. 'resume.json' not found in output directory."
   exit 1
